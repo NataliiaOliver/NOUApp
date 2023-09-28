@@ -122,6 +122,36 @@ public class Admin extends Person {
     private void runRegisterNewProfessor() {
         System.out.println("Register New Professor");
         Utils.printExitMessage();
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter first name: ");
+        String input = in.nextLine();
+        String firstName = input;
+
+        System.out.print("Enter last name: ");
+        input = in.nextLine();
+        String lastName = input;
+
+        System.out.println("Would you like to register courses for the professor?");
+        System.out.println("1 - Yes");
+        System.out.println("2 - No");
+        System.out.println("q - for exit");
+        input = in.nextLine();
+
+        switch (input) {
+            case "Q", "q" -> {
+                System.out.println("Goodbye");
+                System.exit(0);
+            }
+            case "1" -> runCourseRegistration();
+            case "2" -> {
+                Professor professor = new Professor(firstName, lastName, new ArrayList<>());
+                professor.addProfessor(professor);
+                runRegistration();
+            }
+        }
+
     }
 
     private void runRegisterNewAdmin() {
