@@ -44,9 +44,9 @@ public class SignUp {
         for (Admin admin : adminsList) {
             if (admin.getUserName().equals(userName) && admin.getPassword().equals(password)) {
                 System.out.println("Welcome, " + admin.getFirstName() + " " + admin.getLastName() + "!");
-                Admin.runAdmin();
+                admin.runAdmin();
             } else {
-                System.out.println("Sorry, we can't recognize you. Check your credentials and try again later");
+                System.out.println("Sorry, we can't recognize you. Check your credentials and try again later.");
                 System.out.println("Goodbye");
                 System.exit(0);
             }
