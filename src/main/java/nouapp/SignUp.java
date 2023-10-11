@@ -1,5 +1,7 @@
 package nouapp;
 
+import nouapp.database.DBUtils;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,8 +13,25 @@ public class SignUp {
     }
 
     private void signUp() {
-        Admin.addAdmin(new Admin("Ivan", "Sidorov"));
+        Admin admin = new Admin("Ivan", "Sidorov");
+        Admin.addAdmin(admin);
+
+        System.out.println();
+        System.out.println("____________________________________");
+        System.out.println("Local Admins list");
         Admin.printAdmins();
+
+        System.out.println();
+        System.out.println("____________________________________");
+        System.out.println("DB Users list");
+        List<Person> dbPerson = DBUtils.getTablePersonData();
+        System.out.println(dbPerson);
+
+        System.out.println();
+        System.out.println("____________________________________");
+        System.out.println("DB Admins list");
+        List<Admin> dbAdmins = DBUtils.getTblAdminData();
+        System.out.println(dbAdmins);
 
         System.out.println();
         System.out.println("Enter 'q' for quit OR");
